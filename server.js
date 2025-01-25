@@ -23,7 +23,8 @@ io.on('connection', (socket) => {
     });
 });
 
-// بدلاً من استخدام `server.listen`, نستخدم التصدير المباشر
 module.exports = (req, res) => {
-    server.emit('request', req, res);
+    server.listen(process.env.PORT || 3000, () => {
+        console.log('الخادم يعمل على http://localhost:3000');
+    });
 };
